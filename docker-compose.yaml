@@ -1,0 +1,11 @@
+services:
+  mobile-de-scraper:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      # No proxy needed: mobile.de's Akamai Bot Manager lets requests from your own
+      # connection through, so leave this unset (the proxies we tried passed about 1 in 2).
+      # - MOBILE_DE_PROXY=http://user:pass@host:port
